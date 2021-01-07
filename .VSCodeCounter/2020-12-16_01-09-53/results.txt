@@ -1,0 +1,51 @@
+Date : 2020-12-16 01:09:53
+Directory : g:\myflutterapp\kassim\lib
+Total : 21 files,  2373 codes, 147 comments, 146 blanks, all 2666 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         21 |      2,373 |        147 |        146 |      2,666 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                    | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                       |         21 |      2,373 |        147 |        146 |      2,666 |
+| data                                                    |          1 |         80 |         19 |         15 |        114 |
+| models                                                  |          2 |         46 |          0 |         10 |         56 |
+| screens                                                 |          1 |        114 |          1 |         11 |        126 |
+| screens\sgin                                            |          1 |        114 |          1 |         11 |        126 |
+| utils                                                   |          2 |        149 |          4 |         17 |        170 |
+| widget                                                  |          4 |        357 |         65 |         19 |        441 |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                | language | code       | comment    | blank      | total      |
++---------------------------------------------------------+----------+------------+------------+------------+------------+
+| g:\myflutterapp\kassim\lib\addCity.dart                 | Dart     |         92 |          0 |          7 |         99 |
+| g:\myflutterapp\kassim\lib\addStudent.dart              | Dart     |        137 |          1 |          6 |        144 |
+| g:\myflutterapp\kassim\lib\cities.dart                  | Dart     |        100 |          0 |          7 |        107 |
+| g:\myflutterapp\kassim\lib\data\databaseHelper.dart     | Dart     |         80 |         19 |         15 |        114 |
+| g:\myflutterapp\kassim\lib\gradeList.dart               | Dart     |        300 |          0 |          8 |        308 |
+| g:\myflutterapp\kassim\lib\home.dart                    | Dart     |        209 |          8 |          8 |        225 |
+| g:\myflutterapp\kassim\lib\main.dart                    | Dart     |         38 |          4 |          4 |         46 |
+| g:\myflutterapp\kassim\lib\models\city.dart             | Dart     |         18 |          0 |          5 |         23 |
+| g:\myflutterapp\kassim\lib\models\prices.dart           | Dart     |         28 |          0 |          5 |         33 |
+| g:\myflutterapp\kassim\lib\passCode.dart                | Dart     |         19 |          0 |          5 |         24 |
+| g:\myflutterapp\kassim\lib\password.dart                | Dart     |         77 |          0 |          7 |         84 |
+| g:\myflutterapp\kassim\lib\prices.dart                  | Dart     |        374 |         40 |         10 |        424 |
+| g:\myflutterapp\kassim\lib\screens\sgin\signin.dart     | Dart     |        114 |          1 |         11 |        126 |
+| g:\myflutterapp\kassim\lib\settings.dart                | Dart     |        120 |          0 |          2 |        122 |
+| g:\myflutterapp\kassim\lib\splash.dart                  | Dart     |        161 |          5 |         10 |        176 |
+| g:\myflutterapp\kassim\lib\utils\constant.dart          | Dart     |        139 |          4 |         16 |        159 |
+| g:\myflutterapp\kassim\lib\utils\studentData.dart       | Dart     |         10 |          0 |          1 |         11 |
+| g:\myflutterapp\kassim\lib\widget\CustomAppBar.dart     | Dart     |         75 |          4 |          5 |         84 |
+| g:\myflutterapp\kassim\lib\widget\CustomDrawer.dart     | Dart     |        159 |          0 |          6 |        165 |
+| g:\myflutterapp\kassim\lib\widget\studentList_Item.dart | Dart     |         57 |         60 |          4 |        121 |
+| g:\myflutterapp\kassim\lib\widget\textFieldGrey.dart    | Dart     |         66 |          1 |          4 |         71 |
+| Total                                                   |          |      2,373 |        147 |        146 |      2,666 |
++---------------------------------------------------------+----------+------------+------------+------------+------------+
