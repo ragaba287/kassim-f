@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:ui';
-import 'screens/sgin/signin.dart';
-import './utils/constant.dart';
+import './sgin/signin.dart';
+import '../utils/constant.dart';
 
+//TODO Hero Animation
 class SplashScreen extends StatefulWidget {
   static const String id = 'splash_screen';
   @override
@@ -27,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                //Hello Text
                 Text(
                   'Hello,',
                   style: TextStyle(
@@ -37,6 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       height: 1,
                       fontFamily: 'cairo'),
                 ),
+
+                //App Owner Name
                 Text(
                   'Dr.Kassim!',
                   style: TextStyle(
@@ -47,6 +51,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontFamily: 'cairo',
                       color: kMainColorTheam),
                 ),
+
+                //A welcome text to the owner
                 Text(
                   'Welcome back Dr.Kassim',
                   style: TextStyle(
@@ -80,6 +86,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
               ),
+
               //space man image
               Align(
                 alignment: Alignment.bottomRight,
@@ -90,7 +97,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Image(image: AssetImage('images/spaceMan.png')),
                 ),
               ),
-              //Left button navagate to sigin
+
+              //Left button navagate to sigin //TODO Transition To SginIn Screen
               Positioned(
                 left: 30.w,
                 bottom: 50.h,

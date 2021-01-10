@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './addCity.dart';
 import './cities.dart';
@@ -7,10 +6,10 @@ import './passCode.dart';
 import './prices.dart';
 import './settings.dart';
 import './utils/constant.dart';
-import './addStudent.dart';
-import './gradeList.dart';
-import './home.dart';
-import './splash.dart';
+import './screens/addStudent.dart';
+import './screens/gradeList.dart';
+import 'screens/home.dart';
+import 'screens/splash.dart';
 import './screens/sgin/signin.dart';
 import './password.dart';
 
@@ -32,10 +31,11 @@ Future<void> main() async {
 class Kassim extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    // SystemChrome.setEnabledSystemUIOverlays([]);
 
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
+      //TODO Transition Screens
       initialRoute: _userName == null ? SplashScreen.id : HomeScreen.id,
       color: kMainColorTheam,
       routes: {

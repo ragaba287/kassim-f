@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kassim/settings.dart';
 import '../utils/constant.dart';
-import '../splash.dart';
+import '../screens/splash.dart';
 
 class CustomDrawer extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;

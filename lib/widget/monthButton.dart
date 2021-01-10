@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MonthButton extends StatefulWidget {
-  MonthButton({this.monthNum = 0});
-  final int monthNum;
+  const MonthButton({@required this.listCheck, @required this.index});
+
+  final int index;
+  final List listCheck;
+
   @override
   _MonthButtonState createState() => _MonthButtonState();
 }
 
 class _MonthButtonState extends State<MonthButton> {
-  bool col = false;
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
@@ -18,7 +19,9 @@ class _MonthButtonState extends State<MonthButton> {
     return InkWell(
       onTap: () {
         setState(() {
-          col = !col;
+          widget.listCheck[widget.index] == 1
+              ? widget.listCheck[widget.index] = 0
+              : widget.listCheck[widget.index] = 1;
         });
       },
       child: Container(
@@ -33,7 +36,9 @@ class _MonthButtonState extends State<MonthButton> {
               offset: Offset(0, 3),
             ),
           ],
-          color: col ? Color(0xff201D2E) : Colors.white,
+          color: widget.listCheck[widget.index] == 1
+              ? Color(0xff201D2E)
+              : Colors.white,
           border: Border.all(
             color: Color(0xff201D2E),
             width: 2,
@@ -42,11 +47,13 @@ class _MonthButtonState extends State<MonthButton> {
         ),
         child: Center(
             child: Text(
-          widget.monthNum.toString(),
+          (widget.index + 1).toString(),
           style: TextStyle(
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: col ? Colors.white : Colors.black),
+              color: widget.listCheck[widget.index] == 1
+                  ? Colors.white
+                  : Colors.black),
         )),
       ),
     );

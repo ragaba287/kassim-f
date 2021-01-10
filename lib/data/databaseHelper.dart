@@ -155,4 +155,23 @@ class DbHelper {
     Database db = await creatDatabase();
     return db.insert(_StudentTable, student.toMap());
   }
+
+  Future<int> updateStudent(Student student) async {
+    Database db = await creatDatabase();
+    return db.update(
+      _StudentTable,
+      student.toMap(),
+      where: '$_StudentId = ?',
+      whereArgs: [student.studentId],
+    );
+  }
+
+  Future<int> deleteStudent(int id) async {
+    Database db = await creatDatabase();
+    return db.delete(
+      _StudentTable,
+      where: '$_StudentId = ?',
+      whereArgs: [id],
+    );
+  }
 }

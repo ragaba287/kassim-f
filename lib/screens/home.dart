@@ -2,11 +2,10 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kassim/data/databaseHelper.dart';
-import './utils/studentData.dart';
-import './utils/constant.dart';
+import '../utils/constant.dart';
 import './gradeList.dart';
-import './widget/CustomDrawer.dart';
-import './widget/CustomAppBar.dart';
+import '../widget/CustomDrawer.dart';
+import '../widget/CustomAppBar.dart';
 import './addStudent.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,16 +32,19 @@ class HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         key: _scaffoldKey,
         backgroundColor: Colors.white,
-        drawer: CustomDrawer(
-          scaffoldKey: _scaffoldKey,
-        ),
         appBar: CustomAppBar(
           scaffoldKey: _scaffoldKey,
           leadingIconData: 'images/icons/menu.png',
           leadingOnTap: () => _scaffoldKey.currentState.openDrawer(),
+
+          //TODO Enable Search Icon
           actionIconData: 'images/icons/search.png',
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+        //TODO Make Drawer More Customizable
+        drawer: CustomDrawer(
+          scaffoldKey: _scaffoldKey,
+        ),
         floatingActionButton: Container(
           decoration: BoxDecoration(
               color: Color(0x40191C27),
@@ -72,6 +74,7 @@ class HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: FABBottomAppBar(
           color: Color(0xff201D2E),
           selectedColor: Color(0xff201D2E),
@@ -91,35 +94,53 @@ class HomeScreenState extends State<HomeScreen> {
           physics: ScrollPhysics(),
           child: Padding(
             padding: EdgeInsets.only(left: 40.w, right: 40.w, top: 40.h),
+            //Column With The Grades
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 _GradeContainer(
                     gradeNum: '1',
                     gradePrice: 4560,
-                    gradeCount: studentNames.length,
+                    gradeCount: 10,
                     press: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext context) => GradeList())),
+                            builder: (BuildContext context) => GradeList(
+                                  gradeTitle: 'First Grade',
+                                ))),
                     gradeColor: kMainColorTheam),
                 _GradeContainer(
                     gradeNum: '2',
                     gradePrice: 6140,
                     gradeCount: 32,
-                    press: () {},
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => GradeList(
+                                  gradeTitle: 'Second Grade',
+                                ))),
                     gradeColor: kMainColorTheam),
                 _GradeContainer(
                     gradeNum: '3',
                     gradePrice: 1200,
                     gradeCount: 24,
-                    press: () {},
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => GradeList(
+                                  gradeTitle: 'Third Grade',
+                                ))),
                     gradeColor: kMainColorTheam),
                 _GradeContainer(
                     gradeNum: 'p',
                     gradePrice: 3900,
                     gradeCount: 13,
-                    press: () {},
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => GradeList(
+                                  gradeTitle: 'Private',
+                                ))),
                     gradeColor: Color(0xffE10000)),
               ],
             ),
@@ -144,6 +165,8 @@ class _GradeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,
+        designSize: Size(375, 817), allowFontScaling: true);
     return Container(
       margin: EdgeInsets.only(bottom: 20.h),
       child: ClipRRect(
@@ -153,13 +176,6 @@ class _GradeContainer extends StatelessWidget {
           height: 130.h,
           decoration: BoxDecoration(
             color: Color(0xff201D2E),
-            // borderRadius: BorderRadius.circular(30),
-            // boxShadow: [
-            //   BoxShadow(
-            //       color: const Color(0x57191c27),
-            //       offset: Offset(0, 5),
-            //       blurRadius: 20)
-            // ]
           ),
           child: Material(
             color: Colors.transparent,

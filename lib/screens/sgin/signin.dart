@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../widget/textFieldGrey.dart';
 import '../../utils/constant.dart';
-import '../../home.dart';
+import '../home.dart';
 
+//TODO Hero Animation
 class Signin extends StatefulWidget {
   static const String id = 'signin_screen';
 
@@ -16,8 +17,13 @@ class _SigninState extends State<Signin> {
   final _teuserName = TextEditingController();
   final _tepassword = TextEditingController();
   String _userName = '', _password = '';
-
   SharedPreferences sharedPreferences;
+
+  @override
+  void initState() {
+    super.initState();
+    checkIfFirstTime();
+  }
 
   void checkIfFirstTime() async {
     sharedPreferences = await SharedPreferences.getInstance();
@@ -28,12 +34,6 @@ class _SigninState extends State<Signin> {
       _userName = sharedPreferences.getString('userName');
       _password = sharedPreferences.getString('password');
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    checkIfFirstTime();
   }
 
   @override
@@ -56,11 +56,14 @@ class _SigninState extends State<Signin> {
           padding: EdgeInsets.fromLTRB(80.w, 40.h, 80.w, 0.h),
           child: Column(
             children: <Widget>[
+              //Logo for the app
               Image.asset(
                 'images/logo.png',
                 width: 250.w,
               ),
+
               SizedBox(height: 15.h),
+
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -71,10 +74,16 @@ class _SigninState extends State<Signin> {
                       fontSize: 120.sp),
                 ),
               ),
+
               SizedBox(height: 20.h),
+
+              //Text field for the Username
               TextfieldGray(
                   hintText: 'Username', textEditingController: _teuserName),
+
               SizedBox(height: 10.h),
+
+              //Text field for the password
               TextfieldGray(
                 hintText: 'Password',
                 isobscure: true,
@@ -82,10 +91,14 @@ class _SigninState extends State<Signin> {
                 textEditingController: _tepassword,
                 // fontWeight: FontWeight.bold,
               ),
+
               SizedBox(height: 10.h),
+
+              //Yellow butto to login
               MainButtonYellow(
                 title: 'Login',
                 onPressed: () async {
+                  //TODO Fix SharedPreferences
                   sharedPreferences = await SharedPreferences.getInstance();
 
                   if (_teuserName.text == _userName &&
@@ -102,6 +115,8 @@ class _SigninState extends State<Signin> {
               SizedBox(
                 height: 3.h,
               ),
+
+              //The forget button  // TODO Forget Password Screen
               InkWell(
                 onTap: () {},
                 child: Text(
