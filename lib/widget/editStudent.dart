@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kassim/data/databaseHelper.dart';
 import '../models/student.dart';
-import '../utils/constant.dart';
-import './monthButton.dart';
+import '../widget/mainYellowBtn.dart';
 
 // ignore: must_be_immutable
 class EditStudent extends StatefulWidget {

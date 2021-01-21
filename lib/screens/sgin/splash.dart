@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:ui';
-import './sgin/signin.dart';
-import '../utils/constant.dart';
+import 'signin.dart';
+import '../../utils/constant.dart';
 
 //TODO Hero Animation
 class SplashScreen extends StatefulWidget {

@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MonthButton extends StatefulWidget {
-  const MonthButton({@required this.listCheck, @required this.index});
+  const MonthButton({
+    @required this.listCheck,
+    @required this.index,
+    this.isNote = false,
+  });
 
   final int index;
   final List listCheck;
+  final bool isNote;
 
   @override
   _MonthButtonState createState() => _MonthButtonState();
@@ -25,7 +30,7 @@ class _MonthButtonState extends State<MonthButton> {
         });
       },
       child: Container(
-        width: 50.w,
+        width: widget.isNote ? 150.w : 50.w,
         height: 50.w,
         decoration: BoxDecoration(
           boxShadow: [
@@ -47,7 +52,9 @@ class _MonthButtonState extends State<MonthButton> {
         ),
         child: Center(
             child: Text(
-          (widget.index + 1).toString(),
+          widget.index > 9
+              ? 'Note ${widget.index - 9}'
+              : (widget.index + 1).toString(),
           style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,

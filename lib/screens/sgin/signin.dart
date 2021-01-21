@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../widget/textFieldGrey.dart';
-import '../../utils/constant.dart';
+import '../../widget/mainYellowBtn.dart';
 import '../home.dart';
 
 //TODO Hero Animation
@@ -51,31 +51,31 @@ class _SigninState extends State<Signin> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        // physics: ScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(80.w, 40.h, 80.w, 0.h),
+          padding: EdgeInsets.fromLTRB(95.w, 40.h, 95.w, 0.h),
           child: Column(
             children: <Widget>[
               //Logo for the app
               Image.asset(
                 'images/logo.png',
-                width: 250.w,
+                width: 230.w,
               ),
 
-              SizedBox(height: 15.h),
+              SizedBox(height: 10.h),
 
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Log in',
                   style: TextStyle(
-                      fontFamily: 'brlns',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 120.sp),
+                      fontFamily: 'cairo',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 100.sp),
                 ),
               ),
 
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
 
               //Text field for the Username
               TextfieldGray(
@@ -112,9 +112,7 @@ class _SigninState extends State<Signin> {
                   }
                 },
               ),
-              SizedBox(
-                height: 3.h,
-              ),
+              SizedBox(height: 3.h),
 
               //The forget button  // TODO Forget Password Screen
               InkWell(
@@ -128,7 +126,8 @@ class _SigninState extends State<Signin> {
                       fontFamily: 'cairo',
                       fontWeight: FontWeight.w700),
                 ),
-              )
+              ),
+              SizedBox(height: 10.h),
             ],
           ),
         ),

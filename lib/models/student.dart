@@ -3,6 +3,7 @@ class Student {
   String _studentName;
   int _studentPhone;
   String _studentCity;
+  int _studentGrade;
   int _month1;
   int _month2;
   int _month3;
@@ -23,6 +24,7 @@ class Student {
     _studentName = obj['studentName'];
     _studentPhone = obj['studentPhone'];
     _studentCity = obj['studentCity'];
+    _studentGrade = obj['studentGrade'];
     _month1 = obj['month1'];
     _month2 = obj['month2'];
     _month3 = obj['month3'];
@@ -44,6 +46,7 @@ class Student {
     _studentName = data['studentName'];
     _studentPhone = data['studentPhone'];
     _studentCity = data['studentCity'];
+    _studentGrade = data['studentGrade'];
     _month1 = data['month1'];
     _month2 = data['month2'];
     _month3 = data['month3'];
@@ -65,6 +68,7 @@ class Student {
         'studentName': _studentName,
         'studentPhone': _studentPhone,
         'studentCity': _studentCity,
+        'studentGrade': _studentGrade,
         'month1': _month1,
         'month2': _month2,
         'month3': _month3,
@@ -85,6 +89,7 @@ class Student {
   String get studentName => _studentName;
   int get studentPhone => _studentPhone;
   String get studentCity => _studentCity;
+  int get studentGrade => _studentGrade;
   int get month1 => _month1;
   int get month2 => _month2;
   int get month3 => _month3;

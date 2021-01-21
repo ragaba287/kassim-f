@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:kassim/settings.dart';
+import 'package:kassim/screens/settings/settings.dart';
 import '../utils/constant.dart';
-import '../screens/splash.dart';
+import '../screens/sgin/splash.dart';
+import '../data/databaseHelper.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   CustomDrawer({this.scaffoldKey});
+
+  @override
+  _CustomDrawerState createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  DbHelper helper;
+  @override
+  void initState() {
+    super.initState();
+    helper = DbHelper();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +92,8 @@ class CustomDrawer extends StatelessWidget {
                       sharedPreferences.remove('userName');
                       sharedPreferences.remove('password');
                       Navigator.popAndPushNamed(context, SplashScreen.id);
+                      //TODO Close database
+                      // helper.closeDatabase();
                     },
                     child: Padding(
                       padding: EdgeInsets.only(left: 35.w, right: 40.w),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import './addCity.dart';
-import './utils/constant.dart';
-import './widget/CustomAppBar.dart';
-import './models/city.dart';
-import './data/databaseHelper.dart';
+import 'addCity.dart';
+import '../../utils/constant.dart';
+import '../../widget/CustomAppBar.dart';
+import '../../models/city.dart';
+import '../../data/databaseHelper.dart';
 
 class Cities extends StatefulWidget {
   static const String id = 'cities_Screen';
@@ -22,6 +22,10 @@ class CitiesState extends State<Cities> {
     helper = DbHelper();
   }
 
+  refreshOnBack(dynamic value) {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
@@ -29,12 +33,13 @@ class CitiesState extends State<Cities> {
 
     void addNewCityBottomSheet({@required BuildContext context, City city}) {
       showModalBottomSheet(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-          ),
-          context: context,
-          isScrollControlled: true,
-          builder: (_) => SingleChildScrollView(child: AddCity(city: city)));
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+              ),
+              context: context,
+              isScrollControlled: true,
+              builder: (_) => SingleChildScrollView(child: AddCity(city: city)))
+          .then(refreshOnBack);
     }
 
     return Scaffold(
@@ -52,6 +57,29 @@ class CitiesState extends State<Cities> {
               child: LinearProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Color(0x80FDDB3A)),
                 backgroundColor: Colors.white,
+              ),
+            );
+          } else if (snapshot?.data?.isEmpty ?? true) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.inbox,
+                    size: 120,
+                    color: Colors.grey.withOpacity(.8),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'No Cities Yet',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey.withOpacity(.8),
+                    ),
+                  ),
+                ],
               ),
             );
           } else {

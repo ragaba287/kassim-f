@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kassim/utils/constant.dart';
-import 'package:kassim/widget/CustomAppBar.dart';
-import 'package:kassim/widget/textFieldGrey.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../widget/mainYellowBtn.dart';
+import '../../widget/CustomAppBar.dart';
+import '../../widget/textFieldGrey.dart';
 
 class PasswordScreen extends StatefulWidget {
   static const String id = 'password_screen';

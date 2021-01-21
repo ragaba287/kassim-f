@@ -8,7 +8,7 @@ class TextfieldGray extends StatelessWidget {
     this.isobscure = false,
     this.onChange,
     this.letterSpacing,
-    this.fontWeight,
+    this.fontWeight: FontWeight.w700,
     this.width = 1,
     this.textEditingController,
     this.isAutoFocus = false,
@@ -31,7 +31,7 @@ class TextfieldGray extends StatelessWidget {
 
     return Container(
       width: width.wp,
-      height: 70.h,
+      height: 75.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.w),
         color: Color(0xffF4F5F7),
@@ -46,7 +46,7 @@ class TextfieldGray extends StatelessWidget {
             style: TextStyle(
                 color: Color(0xffB4B3B3),
                 fontSize: 20.sp,
-                fontFamily: 'brlns',
+                fontFamily: 'cairo',
                 letterSpacing: letterSpacing,
                 fontWeight: fontWeight),
             decoration: InputDecoration(
@@ -56,7 +56,7 @@ class TextfieldGray extends StatelessWidget {
                   color: Color(0xffB4B3B3),
                   fontSize: 20.sp,
                   letterSpacing: 1,
-                  fontWeight: FontWeight.w300),
+                  fontWeight: FontWeight.w400),
               // suffixIcon: Icon(Icons.remove_red_eye),
             ),
             onChanged: onChange,

@@ -40,6 +40,7 @@ class DbHelper {
   static const _StudentName = 'studentName';
   static const _StudentPhone = 'studentPhone';
   static const _StudentCity = 'studentCity';
+  static const _StudentGrade = 'studentGrade';
   static const _Month1 = 'month1';
   static const _Month2 = 'month2';
   static const _Month3 = 'month3';
@@ -81,10 +82,15 @@ class DbHelper {
         db.execute(
             'INSERT INTO $_PricesTable ($_GradeId , $_MonthPrice , $_Note1Price, $_Note2Price) VALUES (3,100,50,70) ');
         db.execute(
-            'CREATE TABLE $_StudentTable ($_StudentId INTEGER PRIMARY KEY AUTOINCREMENT , $_StudentName varchar(255) , $_StudentPhone INTEGER , $_StudentCity VARCHAR(100) ,  $_Month1 BOOLEAN , $_Month2 BOOLEAN , $_Month3 BOOLEAN , $_Month4 BOOLEAN , $_Month5 BOOLEAN , $_Month6 BOOLEAN , $_Month7 BOOLEAN , $_Month8 BOOLEAN , $_Month9 BOOLEAN , $_Month10 BOOLEAN , $_Month11 BOOLEAN , $_Month12 BOOLEAN , $_Note1 BOOLEAN , $_Note2 BOOLEAN)');
+            'CREATE TABLE $_StudentTable ($_StudentId INTEGER PRIMARY KEY AUTOINCREMENT , $_StudentName varchar(255) , $_StudentPhone INTEGER , $_StudentCity VARCHAR(100) , $_StudentGrade INTEGER ,  $_Month1 BOOLEAN , $_Month2 BOOLEAN , $_Month3 BOOLEAN , $_Month4 BOOLEAN , $_Month5 BOOLEAN , $_Month6 BOOLEAN , $_Month7 BOOLEAN , $_Month8 BOOLEAN , $_Month9 BOOLEAN , $_Month10 BOOLEAN , $_Month11 BOOLEAN , $_Month12 BOOLEAN , $_Note1 BOOLEAN , $_Note2 BOOLEAN)');
       },
     );
     return _db;
+  }
+
+  closeDatabase() async {
+    Database db = await creatDatabase();
+    await db.close();
   }
 
   //Adding new city into _CitiesTable
@@ -139,16 +145,21 @@ class DbHelper {
     );
   }
 
-  getPrice() async {
+  //Get all the sudents to list
+  Future<List> allStudents(int studentGrade) async {
     Database db = await creatDatabase();
-    return db.rawQuery(
-        'Select $_MonthPrice from $_PricesTable where $_GradeId = 1 ');
+    return db.query(
+      _StudentTable,
+      where: '$_StudentGrade = ?',
+      whereArgs: [studentGrade],
+    );
   }
 
-  //Get all the sudents to list
-  Future<List> allStudents() async {
+  Future<int> count(int grade) async {
     Database db = await creatDatabase();
-    return db.query(_StudentTable);
+    int gradeCount = Sqflite.firstIntValue(await db.rawQuery(
+        'SELECT COUNT(*) FROM $_StudentTable WHERE $_StudentGrade = $grade'));
+    return gradeCount;
   }
 
   Future<int> newStudent(Student student) async {

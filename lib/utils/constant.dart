@@ -15,8 +15,8 @@ class FABBottomAppBar extends StatefulWidget {
   FABBottomAppBar({
     this.items,
     this.centerItemText,
-    this.height: 80.0,
-    this.iconSize: 40.0,
+    this.height: 35.0,
+    this.iconSize: 20.0,
     this.backgroundColor,
     this.color,
     this.selectedColor,
@@ -51,6 +51,9 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,
+        designSize: Size(817, 375), allowFontScaling: true);
+
     List<Widget> items = List.generate(widget.items.length, (int index) {
       return _buildTabItem(
         item: widget.items[index],
@@ -74,7 +77,7 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
   Widget _buildMiddleTabItem() {
     return Expanded(
       child: SizedBox(
-        height: widget.height,
+        height: widget.height.h,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +101,7 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
     Color color = _selectedIndex == index ? widget.selectedColor : widget.color;
     return Expanded(
       child: SizedBox(
-        height: widget.height,
+        height: widget.height.h,
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
@@ -107,7 +110,7 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(item.iconData, color: color, size: widget.iconSize),
+                Icon(item.iconData, color: color, size: widget.iconSize.h),
                 // Text(
                 //   item.text,
                 //   style: TextStyle(color: color),
@@ -117,42 +120,6 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class MainButtonYellow extends StatefulWidget {
-  MainButtonYellow({@required this.onPressed, this.title = 'Button'});
-  final Function onPressed;
-  final String title;
-
-  @override
-  _MainButtonYellowState createState() => _MainButtonYellowState();
-}
-
-class _MainButtonYellowState extends State<MainButtonYellow> {
-  @override
-  Widget build(BuildContext context) {
-    ScreenUtil.init(context,
-        designSize: Size(817, 375), allowFontScaling: true);
-
-    return ButtonTheme(
-      minWidth: 1.wp,
-      height: 30.h,
-      child: FlatButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          onPressed: widget.onPressed,
-          child: Text(
-            widget.title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 50.sp,
-              letterSpacing: 2,
-              fontFamily: 'brlns',
-            ),
-          ),
-          color: kMainColorTheam),
     );
   }
 }

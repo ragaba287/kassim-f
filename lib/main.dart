@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import './addCity.dart';
-import './cities.dart';
-import './passCode.dart';
-import './prices.dart';
-import './settings.dart';
+import 'screens/settings/addCity.dart';
+import 'screens/settings/cities.dart';
+import 'screens/settings/passCode.dart';
+import 'screens/settings/prices.dart';
+import 'screens/settings/settings.dart';
 import './utils/constant.dart';
 import './screens/addStudent.dart';
 import './screens/gradeList.dart';
 import 'screens/home.dart';
-import 'screens/splash.dart';
+import 'screens/sgin/splash.dart';
 import './screens/sgin/signin.dart';
-import './password.dart';
+import 'screens/settings/password.dart';
 
 // Future<String> checkIfLoggedIn() async {
 //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

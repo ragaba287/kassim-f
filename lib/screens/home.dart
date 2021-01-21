@@ -1,12 +1,13 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kassim/data/databaseHelper.dart';
-import '../utils/constant.dart';
+import '../data/databaseHelper.dart';
 import './gradeList.dart';
+import './addStudent.dart';
+import '../widget/GradeContainer.dart';
+import '../utils/constant.dart';
 import '../widget/CustomDrawer.dart';
 import '../widget/CustomAppBar.dart';
-import './addStudent.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -16,7 +17,6 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
   DbHelper helper;
   @override
   void initState() {
@@ -47,23 +47,22 @@ class HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButton: Container(
           decoration: BoxDecoration(
-              color: Color(0x40191C27),
-              borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+              borderRadius: BorderRadius.all(Radius.circular(50)),
               boxShadow: [
                 BoxShadow(
                     color: Color(0x87F9B70A),
-                    offset: Offset(0, 3),
+                    offset: Offset(0, 0),
                     blurRadius: 10)
               ]),
-          height: 75.w,
-          width: 75.w,
+          width: 65.w,
           child: FittedBox(
             child: FloatingActionButton(
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => AddStudent()));
+                        builder: (BuildContext context) =>
+                            AddStudent(gradeNumber: 1)));
               },
               elevation: 0,
               backgroundColor: kMainColorTheam,
@@ -93,156 +92,27 @@ class HomeScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
           physics: ScrollPhysics(),
           child: Padding(
-            padding: EdgeInsets.only(left: 40.w, right: 40.w, top: 40.h),
+            padding: EdgeInsets.only(left: 50.w, right: 50.w, top: 40.h),
             //Column With The Grades
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                _GradeContainer(
-                    gradeNum: '1',
-                    gradePrice: 4560,
-                    gradeCount: 10,
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => GradeList(
-                                  gradeTitle: 'First Grade',
-                                ))),
-                    gradeColor: kMainColorTheam),
-                _GradeContainer(
-                    gradeNum: '2',
-                    gradePrice: 6140,
-                    gradeCount: 32,
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => GradeList(
-                                  gradeTitle: 'Second Grade',
-                                ))),
-                    gradeColor: kMainColorTheam),
-                _GradeContainer(
-                    gradeNum: '3',
-                    gradePrice: 1200,
-                    gradeCount: 24,
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => GradeList(
-                                  gradeTitle: 'Third Grade',
-                                ))),
-                    gradeColor: kMainColorTheam),
-                _GradeContainer(
-                    gradeNum: 'p',
-                    gradePrice: 3900,
-                    gradeCount: 13,
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => GradeList(
-                                  gradeTitle: 'Private',
-                                ))),
-                    gradeColor: Color(0xffE10000)),
-              ],
-            ),
-          ),
-        ));
-  }
-}
-
-class _GradeContainer extends StatelessWidget {
-  _GradeContainer(
-      {this.gradeNum = '1',
-      this.gradePrice = 0,
-      this.gradeCount = 0,
-      this.press,
-      this.gradeColor = Colors.amber});
-
-  final String gradeNum;
-  final int gradePrice;
-  final int gradeCount;
-  final Function press;
-  final Color gradeColor;
-
-  @override
-  Widget build(BuildContext context) {
-    ScreenUtil.init(context,
-        designSize: Size(375, 817), allowFontScaling: true);
-    return Container(
-      margin: EdgeInsets.only(bottom: 20.h),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15.w),
-        child: Container(
-          width: double.infinity,
-          height: 130.h,
-          decoration: BoxDecoration(
-            color: Color(0xff201D2E),
-          ),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: press,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    gradeNum,
-                    style: TextStyle(
-                        color: gradeColor,
-                        fontSize: 60.sp,
-                        fontFamily: 'hpSimplified',
-                        fontWeight: FontWeight.w900),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            gradePrice.toString(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'hpSimplified'),
-                          ),
-                          Text(
-                            ' E£            ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'hpSimplified'),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            gradeCount.toString(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'hpSimplified'),
-                          ),
-                          Text(
-                            '  Student',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'hpSimplified'),
-                          ),
-                        ],
-                      )
-                    ],
-                  )
-                ],
+              children: List.generate(
+                4,
+                (index) => GradeContainer(
+                  gradeNum: (index + 1) == 4 ? 'P' : (index + 1).toString(),
+                  gradePrice: 6140,
+                  gradeCount: 32,
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => GradeList(
+                                gradeNumber: index + 1,
+                              ))),
+                  gradeColor: (index + 1) == 4 ? Colors.red : kMainColorTheam,
+                ),
               ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

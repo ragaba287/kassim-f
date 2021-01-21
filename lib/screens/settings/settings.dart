@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kassim/password.dart';
-import 'package:kassim/prices.dart';
-import './cities.dart';
-import './widget/CustomAppBar.dart';
+import 'package:kassim/screens/settings/password.dart';
+import 'package:kassim/screens/settings/prices.dart';
+import 'cities.dart';
+import '../../widget/CustomAppBar.dart';
 
 class Settings extends StatelessWidget {
   static const String id = 'settings_screen';
