@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../data/databaseHelper.dart';
 import '../../utils/constant.dart';
-import '../../widget/CustomAppBar.dart';
+import '../../widgets/CustomAppBar.dart';
 import '../../models/prices.dart';
 
 DbHelper helper;

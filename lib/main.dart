@@ -36,7 +36,8 @@ class Kassim extends StatelessWidget {
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
       //TODO Transition Screens
-      initialRoute: _userName == null ? SplashScreen.id : HomeScreen.id,
+      // initialRoute: _userName == null ? SplashScreen.id : HomeScreen.id,
+      initialRoute: SplashScreen.id,
       color: kMainColorTheam,
       routes: {
         SplashScreen.id: (context) => SplashScreen(),

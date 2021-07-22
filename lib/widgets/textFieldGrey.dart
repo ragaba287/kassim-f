@@ -30,7 +30,7 @@ class TextfieldGray extends StatelessWidget {
         designSize: Size(375, 817), allowFontScaling: true);
 
     return Container(
-      width: width.wp,
+      width: width.sw,
       height: 75.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.w),

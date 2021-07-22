@@ -3,7 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'addCity.dart';
 import '../../utils/constant.dart';
-import '../../widget/CustomAppBar.dart';
+import '../../widgets/CustomAppBar.dart';
 import '../../models/city.dart';
 import '../../data/databaseHelper.dart';
 

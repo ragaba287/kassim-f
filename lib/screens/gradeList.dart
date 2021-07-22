@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../widget/CustomAppBar.dart';
+import '../widgets/CustomAppBar.dart';
 import './addStudent.dart';
 import '../utils/constant.dart';
 import '../models/student.dart';
 import '../data/databaseHelper.dart';
-import '../widget/studentItem.dart';
+import '../widgets/studentItem.dart';
 
 class GradeList extends StatefulWidget {
   static const String id = 'gradeList_Screen';

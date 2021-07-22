@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kassim/screens/settings/password.dart';
 import 'package:kassim/screens/settings/prices.dart';
 import 'cities.dart';
-import '../../widget/CustomAppBar.dart';
+import '../../widgets/CustomAppBar.dart';
 
 class Settings extends StatelessWidget {
   static const String id = 'settings_screen';

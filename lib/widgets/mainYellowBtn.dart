@@ -18,7 +18,7 @@ class _MainButtonYellowState extends State<MainButtonYellow> {
         designSize: Size(817, 375), allowFontScaling: true);
 
     return ButtonTheme(
-      minWidth: 1.wp,
+      minWidth: 1.sw,
       height: 35.h,
       child: FlatButton(
           shape:

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kassim/data/databaseHelper.dart';
-import '../widget/mainYellowBtn.dart';
-import 'package:kassim/widget/monthButton.dart';
+import '../data/databaseHelper.dart';
+import '../widgets/mainYellowBtn.dart';
+import '../widgets/monthButton.dart';
 import '../models/student.dart';
 
 class StudentItem extends StatefulWidget {

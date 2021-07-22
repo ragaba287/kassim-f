@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../data/databaseHelper.dart';
 import './gradeList.dart';
 import './addStudent.dart';
-import '../widget/GradeContainer.dart';
+import '../widgets/GradeContainer.dart';
 import '../utils/constant.dart';
-import '../widget/CustomDrawer.dart';
-import '../widget/CustomAppBar.dart';
+import '../widgets/CustomDrawer.dart';
+import '../widgets/CustomAppBar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';

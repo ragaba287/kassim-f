@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../widget/monthButton.dart';
-import '../widget/mainYellowBtn.dart';
-import '../widget/textFieldGrey.dart';
+import '../widgets/monthButton.dart';
+import '../widgets/mainYellowBtn.dart';
+import '../widgets/textFieldGrey.dart';
 import '../models/student.dart';
 import '../data/databaseHelper.dart';
 
